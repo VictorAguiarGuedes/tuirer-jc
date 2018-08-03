@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block body %}
+    <form method="post">
+        {% csrf_token %}
+        <!-- {{ form.as_p }} Também tem as_li e outros tipos, representando como vai ser formatado quando renderizar
+        <input type="submit" value="Postar Tuite"> -->
+        
+        {% if form.errors %} <!--Agora o form está ligado ao django, então não vai haver os contextos, usamos agora o erros do form do django-->
+            {% for error in form.non_field_errors %} <!--non fields pq não colocamos em um campo específico, está no clean, que pertence a todo o form-->
+                <div style="color: red">{{error}}</div>
+            {% endfor %}
+        {% endif %}
+
+        <!-- {% if sucess_message %}
+            <div style="background-color: blue; color: white">{{ sucess_message }}</div>
+        {% endif %} -->
+
+        {% if messages %} <!--Salva as mensagens até ter a oportunidade de ser mostrado--> <!--Colocar no include-->
+            {% for message in messages %}
+                <p class="message">{{ message }}</p>
+            {% endfor%}
+        {% endif %}
+
+        {% for field in form %}
+            {% if not field.name == 'author' %}
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {% endif %}
+            <!-- {{ field }} -->
+            {% render_field field class="post-tuite-field" placeholder=field.label %}
+            <p style="color: lightgray">{{ field.help_text }}</p>
+            {{ field.errors }} <!--NO momento não está sendo usado-->
+        {% endfor %}
+        <input type="submit" value="Postar Tuite">
+        
+
+        <!-- {% if error %}
+            <div style="color: red">{{error}}</div>
+        {% endif %} -->
+    </form>
+
+    {% if error %}
+        <script>
+            alert('{{error}}')
+        </script>
+    {% endif %} 
+{% endblock %}

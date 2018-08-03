@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <a href="{% url 'users:profile' request.user.pk %}">Voltar</a>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" Value="Enviar">
+    </form>
+{% endblock %}

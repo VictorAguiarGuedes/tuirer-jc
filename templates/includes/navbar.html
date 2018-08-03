@@ -1,0 +1,11 @@
+<nav>
+    <a href="{% url 'index' %}">Início</a>
+    <a href="{% url 'tuites:postar' %}">Postar Tuite</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'users:profile' request.user.pk %}">Olá, <b>{{ user.username }}</b></a>
+        <a href="{% url 'users:logout' %}">Sair</a>
+    {% else %}
+        <a href="{% url 'users:login' %}">Entrar</a>
+        <a href="{% url 'users:signup' %}">Cadastrar</a>
+    {% endif %}
+</nav>

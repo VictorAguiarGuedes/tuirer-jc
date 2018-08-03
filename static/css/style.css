@@ -1,0 +1,43 @@
+body {
+    background-color: lightseagreen;
+}
+
+div {
+    color: white;
+}
+
+.container-tuites {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.card-tuite {
+    width: 80%;
+    padding: 20px;
+    background: gray;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.card-like {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.card-like:hover {
+    color: lightcoral;
+    cursor: pointer;
+}
+
+.profile-picture img {
+    width: 100px;
+    height: 100px;
+}
+
+.likes {
+    font-size: 8px;
+}

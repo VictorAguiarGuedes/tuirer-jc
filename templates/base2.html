@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Tuirer</title>
+        <style>
+            body {
+                background-color: lightgreen;
+                font-family: sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h2>Tuirer</h2>
+
+        <p>{% lorem 1 p %}</p> <!--1 de 1 lorem ipsum, p de parágrafo-->
+
+        <p>{{user}}</p> <!--Retorna o nome de user do usuário logado-->
+
+        <p>
+            {% if user.is_authenticated %}
+                Olá, {{user}}!
+            {% else %}
+                SAIDAKI
+            {% endif %}
+        </p>
+
+        <p> Meu nome é {{ my_name }} </p>
+
+        <p>{{ now|date:"d" }}</p> <!--Filtros para retornar a data, tem na api do django-->
+        <p>{{ now|date:"d/n/Y" }}</p>
+        <p>{{ now|date:"d \d\e F \d\e Y" }}</p> <!--Escapando a string para não ser convertida como filtro, através do '\' -->
+
+        <p>
+            {% block body %}
+                Hello.
+            {% endblock %}
+        </p>
+
+        <!-- <form action="">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Nome">
+            <input type="submit" value="Enviar">
+        </form> -->
+
+        <!--bloco usando o include, tava no home antes-->
+        {% block body %}
+
+            {% for number in "123456" %}
+                <div style="color: {% if forloop.first %} red {% else %} blue {% endif %}; border: 1px solid black;" >
+                    <b>{{ forloop }} </b>
+                    {% include 'includes/card.html' with content=number author="Filho do Cristiano Ronaldo" %} <!--Começa sempre o diretório em templates, pode passar variáveis -->
+                </div>
+            {% endfor %}
+            
+            {% include 'includes/card.html' with content="Tenho fome" author="Filho do Cristiano Ronaldo" %} <!--Começa sempre o diretório em templates, pode passar variáveis -->
+
+        {% endblock %}
+
+    </body>
+</html>

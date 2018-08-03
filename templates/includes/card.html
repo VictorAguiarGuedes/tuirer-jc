@@ -1,0 +1,21 @@
+{% load tuite_likes %}
+<div class="card-tuite" id="{{ tuite.id }}"> <!--Daí quando clicar seta na url localhost/#42, sendo 42 o id do tuite 42, e aí a página abriria na posição do tuite-->
+        <div><b><a href="{% url 'users:profile' tuite.author.pk %}">{{tuite.author}}</a></b></div>
+        <div>
+            {{tuite.content}}
+        </div>
+        <div class="likes">
+            Curtido por
+            {% for user in tuite.liked_by.all %}            
+                {{ user }}
+            {% empty %} <!--Retorna no caso do queryset ser vazio-->
+                ninguém
+            {% endfor %}
+        </div>
+        <div class="card-like">
+            <a href="{% url 'tuites:like' tuite.pk %}">
+                {% tuite_liked_icon %}
+            </a>
+            <p>{{ tuite.likes_count }}</p>
+        </div>
+</div>

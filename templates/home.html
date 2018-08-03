@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    {% if messages %}
+        {% for message in messages %}
+            <div>{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <div class="container-tuites">
+        {% for tuite in tuites %}
+            {% include 'includes/card.html' %}
+        {% endfor %}
+    </div>
+{% endblock %}
