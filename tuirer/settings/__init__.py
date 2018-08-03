@@ -1,0 +1,1 @@
+#pra o django reconhecer que é um módulo, sempre botar o init na pasta. Ele é o primeiro arquivo a ser rodado, e é executado quando não se encontra um arquivo com o nome desejado
