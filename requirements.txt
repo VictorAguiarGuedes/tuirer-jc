@@ -1,8 +1,11 @@
 backcall==0.1.0
 certifi==2018.4.16
 chardet==3.0.4
+coverage==4.5.1
 decorator==4.3.0
-Django==2.0.7
+dj-database-url==0.5.0
+Django==2.0.8
+django-heroku==0.3.1
 django-widget-tweaks==1.4.2
 idna==2.7
 ipdb==0.11
@@ -12,7 +15,9 @@ jedi==0.12.1
 parso==0.3.1
 pexpect==4.6.0
 pickleshare==0.7.4
+Pillow==5.2.0
 prompt-toolkit==1.0.15
+psycopg2==2.7.5
 ptyprocess==0.6.0
 Pygments==2.2.0
 pytz==2018.5
@@ -22,3 +27,4 @@ six==1.11.0
 traitlets==4.3.2
 urllib3==1.23
 wcwidth==0.1.7
+whitenoise==3.3.1
