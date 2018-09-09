@@ -22,6 +22,6 @@ class Tuite(models.Model):
         return f'{self.author.username}: {self.content}'
 
     class Meta:
-        ordering = ('content', )
+        ordering = ('-date_created', )
 
 #default = 1, on_delete = models.SET_DEFAULT Seta um valor default na criação do campo, nesse caso passando a pk do user

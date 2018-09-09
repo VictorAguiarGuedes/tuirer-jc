@@ -16,6 +16,7 @@ def index(request):
         'my_name': "Julia",
         'now': datetime.now(),
         'tuites': Tuite.objects.all(),
+        'tuitesVisitante': Tuite.objects.all()[:5],
     }
     
     return render(request, 'home.html', contexto)

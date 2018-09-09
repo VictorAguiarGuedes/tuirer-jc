@@ -6,7 +6,11 @@
         <img src="{{ profile.picture.url }}" alt="">
     </div>
     
-    <h2>{{profile.username}}</h2>
+    {% if profile == request.user %}
+        <h2>{{profile.username}} (Eu)</h2>
+    {% else %}
+        <h2>{{profile.username}}</h2>
+    {% endif %}
 
     <p>{{ profile.email }}</p>
     

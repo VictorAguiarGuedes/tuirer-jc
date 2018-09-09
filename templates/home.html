@@ -7,8 +7,14 @@
         {% endfor %}
     {% endif %}
     <div class="container-tuites">
-        {% for tuite in tuites %}
-            {% include 'includes/card.html' %}
-        {% endfor %}
+        {% if request.user.is_authenticated %}
+            {% for tuite in tuites %}
+                {% include 'includes/card.html' %}
+            {% endfor %}
+        {% else %}
+            {% for tuite in tuitesVisitante %}
+                {% include 'includes/card.html' %}
+            {% endfor %}
+        {% endif %}
     </div>
 {% endblock %}
