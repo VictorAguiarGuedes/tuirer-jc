@@ -19,7 +19,7 @@ class ProfileEditView(ProfileAccessMixin, UpdateView):
     template_name = 'profile_edit.html'
 
     def get_success_url(self):
-        return reverse_lazy('users: profile', args=[self.object.pk])
+        return reverse_lazy('users:profile', args=[self.object.pk])
 
 class UserLoginView(LoginView):
     template_name = 'login.html'

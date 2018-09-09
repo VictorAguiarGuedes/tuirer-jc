@@ -1,36 +1,137 @@
 body {
-    background-color: lightseagreen;
+    background-color: white;
+    margin: 0;
+}
+html {
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+}
+a {
+    text-decoration: none;
 }
 
-div {
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 120px;
+    background: #778899;
+    font-size: 2rem;
+}
+
+.banner a {
     color: white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    background: #778899;
+}
+
+.navbar a {
+    color: white;
+}
+
+.post-tuite {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.post-tuite form {
+    text-align: end;
+}
+
+.help-text {
+    text-align: start;
+}
+
+textarea {
+    resize: none;
+    padding: 5px;
+}
+
+.button-submit {
+    background: #778899;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .container-tuites {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .card-tuite {
-    width: 80%;
+    width: 70%;
     padding: 20px;
-    background: gray;
+    padding-right: 35px;
+    background: white;
     margin-bottom: 10px;
-    border-radius: 10px;
+    border-radius: 4px;
     position: relative;
+    border: 1px solid #778899;
+}
+
+.card-author {
+    padding-bottom: 12px;
+}
+
+.card-author a {
+    color: 	#778899;
+}
+
+.card-content {
+    padding-bottom: 8px;
 }
 
 .card-like {
+    display: flex;
+    align-items: center;
     position: absolute;
     right: 10px;
-    bottom: 10px;
+    top: 21px;
 }
 
-.card-like:hover {
+.card-like p {
+    margin: 0;
+    margin-left: 5px;
     color: lightcoral;
+}
+
+.card-like a {
+    color: lightcoral;
+}
+
+.card-like:hover a {
     cursor: pointer;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.profile h2 {
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+.profile > a {
+    margin-bottom: 16px;
+    color: #778899;
 }
 
 .profile-picture img {
@@ -38,6 +139,29 @@ div {
     height: 100px;
 }
 
+.profile-edit {
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+.profile-edit a {
+    color: #778899;
+}
+
 .likes {
-    font-size: 8px;
+    font-size: 0.7rem;
+}
+
+.login {
+    padding: 30px 0 0 30px;
+}
+
+.login p {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+}
+
+.signup {
+    padding: 30px 0 0 30px;
 }

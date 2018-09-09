@@ -12,6 +12,7 @@ class PostTuiteForm(forms.ModelForm):
         self.fields['author'].initial = self.initial['user'].id
         self.fields['author'].widget = forms.HiddenInput()
         self.fields['content'].help_text='Digite o que você está pensando'
+        self.fields['content'].widget = forms.Textarea()
         #self.fields['content'].widget = forms.TextInput(attrs={'class': 'post-tuite-input'}) #Para adicionar classe em um field
 
     # def clean_content(self): #Clean content é específico

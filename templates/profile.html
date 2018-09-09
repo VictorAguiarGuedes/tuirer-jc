@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<div class="profile">
     <div class="profile-picture">
         <img src="{{ profile.picture.url }}" alt="">
     </div>
+    
+    <h2>{{profile.username}}</h2>
+
+    <p>{{ profile.email }}</p>
+    
     {% if profile == request.user %}
         <a href="{% url 'users:profile-edit' request.user.pk %}">Editar perfil</a>
     {% endif %}
-
-    <p>{{ profile.email }}</p>
-
-    <h2>{{profile.username}}</h2>
 
     <!--{{ profile.tuites_set.all }} Quando não há related name-->
     <!-- {{ profile.tuites.all }} -->
@@ -18,4 +20,5 @@
     {% for tuite in profile.tuites.all %}
         {% include 'includes/card.html' %}
     {% endfor %}
+</div>
 {% endblock %}

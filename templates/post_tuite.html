@@ -2,6 +2,7 @@
 {% load widget_tweaks %}
 
 {% block body %}
+<div class="post-tuite">
     <form method="post">
         {% csrf_token %}
         <!-- {{ form.as_p }} Também tem as_li e outros tipos, representando como vai ser formatado quando renderizar
@@ -24,21 +25,22 @@
         {% endif %}
 
         {% for field in form %}
-            {% if not field.name == 'author' %}
+        <p class="help-text" style="color: #778899">{{ field.help_text }}</p>
+            <!--{% if not field.name == 'author' %}
                 <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-            {% endif %}
+            {% endif %} Comentei por achar mais bonito sem label -->
             <!-- {{ field }} -->
             {% render_field field class="post-tuite-field" placeholder=field.label %}
-            <p style="color: lightgray">{{ field.help_text }}</p>
             {{ field.errors }} <!--NO momento não está sendo usado-->
         {% endfor %}
-        <input type="submit" value="Postar Tuite">
+        <input class="button-submit" type="submit" value="Postar Tuite">
         
 
         <!-- {% if error %}
             <div style="color: red">{{error}}</div>
         {% endif %} -->
     </form>
+</div>
 
     {% if error %}
         <script>
