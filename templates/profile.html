@@ -26,7 +26,7 @@
             {% endif %}
         {% endif %}
         <div>{{ profile.followers_count }}</div>
-        <a class="profile-followers" href="{% url 'users:seguidores' profile.pk %}">Seguidores</a>
+        <a class="profile-followers" href="{% url 'users:seguidores' profile.pk %}">Seguidor{{ profile.followers_count|pluralize:"es" }}</a>
     </div>
 
     <!--{{ profile.tuites_set.all }} Quando não há related name-->
