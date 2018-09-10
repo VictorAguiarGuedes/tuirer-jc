@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import DetailView, UpdateView, CreateView
+from django.views.generic import DetailView, UpdateView, CreateView, RedirectView
 from users.models import User
 from django.urls import reverse_lazy
 from users.mixins import ProfileAccessMixin
@@ -34,3 +34,25 @@ class UserSignupView(CreateView):
     template_name = 'signup.html'
     success_url = reverse_lazy('tuites:postar')
 
+class FollowUserView(RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        from_url = self.request.META.get('HTTP_REFERER')
+        user_pk = kwargs.get('pk')
+        user_logado = self.request.user
+
+        user = User.objects.get(pk=user_pk)
+        if user_logado.following.filter(pk=user_pk).exists():
+            user_logado.following.remove(user)
+        else:
+            user_logado.following.add(user)
+        return f'{from_url}'
+
+class FollowersUserView(DetailView):
+    model = User
+    template_name = 'followers.html'
+    context_object_name = 'userFollower'
+
+    def get_context_data(self, **kwargs):
+        context = super(FollowersUserView, self).get_context_data(**kwargs)
+        context['followers'] = self.object.seguidores.all()
+        return context

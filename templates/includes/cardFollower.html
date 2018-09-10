@@ -1,0 +1,8 @@
+<a href="{% url 'users:profile' follower.pk %}">
+    <div class="card-follower">
+        <div class="card-follower-content">
+            <div class="card-follower-img" style="background-image: url('{{ follower.picture.url }}')"></div>
+            <div><b>{{follower}}</b></div>
+        </div>
+    </div>
+</a>

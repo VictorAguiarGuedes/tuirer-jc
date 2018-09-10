@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load follow_user %}
 
 {% block body %}
 <div class="profile">
@@ -15,8 +16,18 @@
     <p>{{ profile.email }}</p>
     
     {% if profile == request.user %}
-        <a href="{% url 'users:profile-edit' request.user.pk %}">Editar perfil</a>
+        <a class="profile-edit-button" href="{% url 'users:profile-edit' request.user.pk %}">Editar perfil</a>
     {% endif %}
+
+    <div class="profile-follow">
+        {% if request.user.is_authenticated %}
+            {% if profile != request.user %}
+                <a class="follow-button" href="{% url 'users:seguir' profile.pk %}">{% follow_user_button %}</a>
+            {% endif %}
+        {% endif %}
+        <div>{{ profile.followers_count }}</div>
+        <a class="profile-followers" href="{% url 'users:seguidores' profile.pk %}">Seguidores</a>
+    </div>
 
     <!--{{ profile.tuites_set.all }} Quando não há related name-->
     <!-- {{ profile.tuites.all }} -->

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="followers">
+    <a href="{% url 'users:profile' userFollower.pk %}">Voltar</a>
+    <div class="followers-title">Seguidores de {{userFollower}}</div>
+    <div class="followers-container">
+        {% for follower in followers %}
+            {% include 'includes/cardFollower.html' %}
+        {% empty %}
+            {{userFollower}} ainda não possui seguidores
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

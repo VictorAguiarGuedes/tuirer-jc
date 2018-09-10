@@ -2,13 +2,14 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <title>Tuirer</title>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     </head>
     <body>
         <!--<h2>Tuirer {{ eu }} </h2>-->
 
-        <div class="banner"><a href="{% url 'index' %}">Tuirer</a></div>
+        <div class="banner"><a href="{% url 'index' %}"><i class="fab fa-earlybirds"></i> Tuirer</a></div>
         
         {% include 'includes/navbar.html' %}
 

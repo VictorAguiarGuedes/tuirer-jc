@@ -28,7 +28,7 @@ class PostTuiteView(LoginRequiredMixin, CreateView): #É estilo de código do py
     def form_valid(self, form):
         messages.success(
             self.request,
-            'Vocẽ postou um Tuite!'
+            'Você postou um Tuite!'
         )
         return super().form_valid(form)
 
@@ -43,7 +43,8 @@ class LikeTuiteView(RedirectView):
             tuite.liked_by.remove(user)
         else:
             tuite.liked_by.add(user)
-        return f'{from_url}#{tuite_pk}'
+        #return f'{from_url}#{tuite_pk}' Pode ser usado para abrir uma nova tela com o tuirer curtido, ou trabalhar com alguma outra url
+        return f'{from_url}'
 
 #Código não utilizado atualmente
 def post_tuite(request):
